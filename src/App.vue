@@ -8,65 +8,50 @@
       <button class="icon-btn">📅</button>
     </header>
 
-    <main class="content-layout">
-      <section class="left-panel">
-        <section class="summary">
-          <div>
-            <p class="label expense">Expense</p>
-            <h2>$4,491</h2>
-          </div>
-          <div>
-            <p class="label income">Income</p>
-            <h2>$0</h2>
-          </div>
-        </section>
+    <section class="summary">
+      <div>
+        <p class="label expense">Expense</p>
+        <h2>$4,491</h2>
+      </div>
+      <div>
+        <p class="label income">Income</p>
+        <h2>$0</h2>
+      </div>
+    </section>
 
-        <section class="ring-card">
-          <div class="ring">
-            <div class="ring-inner">
-              <p>Balance</p>
-              <h3>$-4,491</h3>
-            </div>
-          </div>
-        </section>
-
-        <section class="list-card">
-          <div class="list-title">
-            <span>Mon, Mar 9, 2026</span>
-            <strong>$-797</strong>
-          </div>
-          <ul>
-            <li><span>Breakfast</span><strong>$-671</strong></li>
-            <li><span>Lunch</span><strong>$-126</strong></li>
-          </ul>
-        </section>
-      </section>
-
-      <section class="record-panel">
-        <div class="switcher">
-          <button :class="['switch-btn', mode === 'expense' && 'active']" @click="mode = 'expense'">Expense</button>
-          <button :class="['switch-btn', mode === 'income' && 'active']" @click="mode = 'income'">Income</button>
+    <section class="ring-card">
+      <div class="ring">
+        <div class="ring-inner">
+          <p>Balance</p>
+          <h3>$-4,491</h3>
         </div>
+      </div>
+    </section>
 
-        <div class="category-grid">
-          <button v-for="item in categories" :key="item" class="cat-item">{{ item }}</button>
-        </div>
+    <section class="record-panel">
+      <div class="switcher">
+        <button :class="['switch-btn', mode === 'expense' && 'active']" @click="mode = 'expense'">Expense</button>
+        <button :class="['switch-btn', mode === 'income' && 'active']" @click="mode = 'income'">Income</button>
+      </div>
 
-        <div class="input-row">
-          <div class="currency">TWD</div>
-          <input v-model="amountText" placeholder="$0" />
-          <input v-model="note" class="note" placeholder="Tap here to write" />
-        </div>
+      <div class="category-grid">
+        <button v-for="item in categories" :key="item" class="cat-item">{{ item }}</button>
+      </div>
 
-        <div class="quick-tags">
-          <span v-for="tag in ['Breakfast', 'Workout']" :key="tag">{{ tag }}</span>
-        </div>
+      <div class="input-row">
+        <div class="currency">TWD</div>
+        <input v-model="amountText" placeholder="$0" />
+        <input v-model="note" class="note" placeholder="Tap here to write" />
+      </div>
 
-        <div class="keypad">
-          <button v-for="key in keys" :key="key" :class="['key', keyClass(key)]" @click="pressKey(key)">{{ key }}</button>
-        </div>
-      </section>
-    </main>
+      <div class="quick-tags">
+        <span v-for="tag in ['Breakfast', 'Workout']" :key="tag">{{ tag }}</span>
+      </div>
+
+      <div class="keypad">
+        <button v-for="key in keys" :key="key" :class="['key', keyClass(key)]" @click="pressKey(key)">{{ key }}</button>
+      </div>
+    </section>
 
     <button class="fab">＋</button>
   </div>
